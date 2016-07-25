@@ -1,0 +1,75 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="api.list">
+      <field name="name">api list</field>
+      <field name="model">api.api</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="api.action_window">
+      <field name="name">api window</field>
+      <field name="res_model">api.api</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+<!--    
+    <record model="ir.actions.server" id="api.action_server">
+      <field name="name">api server</field>
+      <field name="model_id" ref="model_api_api"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>-->
+    <!-- ########################################## -->
+    <record id="action_api_lists" model="ir.actions.act_window">
+      <field name="name">API Listss</field>
+      <field name="res_model">dbobject.dbobject</field>
+    </record>
+    <record id="api_lists_form" model="ir.ui.view">
+      <field name="name">API Lists</field>
+      <field name="model">dbobject.dbobject</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <label for="name"/> <field name="name"/>
+            <label for="model"/> <field name="model"/>
+            <label for="domain"/><field name="domain"/>
+            <label for="field"/><field name="field"/>
+            <label for="offset"/><field name="offset"/>
+            <label for="limit"/><field name="limit"/>
+            <label for="sort"/><field name="sort"/>
+            <label for="groupby"/><field name="groupby"/>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <menuitem sequence="0" id="menu_api" name="API"/>
+    <menuitem id="menu_api_content" parent="menu_api"
+            name="API Content"/>
+    <menuitem id="menu_api_content_lists"
+            parent="menu_api_content"
+            action="action_api_lists"/>
+
+    
+    
+  </data>
+</openerp>
